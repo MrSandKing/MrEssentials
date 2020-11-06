@@ -27,33 +27,19 @@ public class MrEssentials extends JavaPlugin {
 		saveDefaultConfig();	
 		reloadConfig();
 		saveConfig();
-		KitUtils.loadKits();
 		Trash.createTrash();
 		
 		if(getConfig().getBoolean("protect-world") == true) {
 			ProtectedWorldsUtils.setProtect(true);
-			//ProtectedWorldsUtils.getProtectedWorlds().add(getConfig().getStringList("protected-worlds"));
 			List<String> protectedlist = getConfig().getStringList("protected-worlds");
 			setList(protectedlist);
-			//ProtectedWorldsUtils.loadProtectedWorlds();
 			sendInfo("Protect Worlds - enabled");
 		} else if(getConfig().getBoolean("protect-world") == false){
 			ProtectedWorldsUtils.setProtect(false);
 			sendInfo("Protect Worlds - disabled");
 		}
 		
-		//List<String> blcm = getConfig().getStringList("blocked-cmds");
-		//setBlockedcmds(blcm);
-		
-		/*ProtectedWorldsUtils.loadProtectedWorlds();
-		
-		ConfigManager.loadConfig();
-		
-		ConfigManager.saveConfig();
-		ConfigManager.saveMessages();*/
-		
 		getServer().getPluginManager().registerEvents(new ProtectedWorlds(), this);
-		//getServer().getPluginManager().registerEvents(new BlockedCommands(), this);
 		
 		getCommand("trash").setExecutor(new Trash());
 		getCommand("kick").setExecutor(new Kick());
