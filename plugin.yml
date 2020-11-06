@@ -1,0 +1,21 @@
+name: MrEssentials
+version: 0.1.0
+main: com.mrsandking.mressentials.MrEssentials
+author: MrSandKing
+
+commands:
+  fly:
+    description: Fly mode.
+    aliases: [flight]
+  deop:
+    description: Deop any op.
+  op:
+    description: Op any player.
+  tphere:
+    description: Teleport any player to you.
+    aliases: [tph]
+  kick:
+    description: Kick player.
+    aliases: [kickplayer]        
+  trash:
+    description: Open that trash.
