@@ -1,26 +1,16 @@
 package com.mrsandking.mressentials.cmds;
 
 import org.bukkit.Bukkit;
-//import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-//import org.bukkit.scheduler.BukkitScheduler;
 
-//import com.mrsandking.mressentials.MrEssentials;
 import com.mrsandking.mressentials.utils.PlayerUtils;
 
 import net.md_5.bungee.api.ChatColor;
-//import net.md_5.bungee.api.ChatMessageType;
-//import net.md_5.bungee.api.chat.TextComponent;
 
 public class Fly implements CommandExecutor {
-
-	/*
-	 Komenda Fly, konsola rowniez ma dostep do tej komendy.
-	 Uprawnienia: mressentials.fly
-	 */
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String lab, String[] args) {
