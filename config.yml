@@ -1,0 +1,6 @@
+protect-world: true
+
+protected-worlds:
+- 'world'
+- 'world_nether'
+- 'world_end'
