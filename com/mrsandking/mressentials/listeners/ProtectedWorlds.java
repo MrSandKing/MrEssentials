@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 
 import com.mrsandking.mressentials.MrEssentials;
 import com.mrsandking.mressentials.utils.ProtectedWorldsUtils;
@@ -46,6 +47,16 @@ public class ProtectedWorlds implements Listener {
 	public void onDamage(EntityDamageEvent event) {
 		Entity entity = event.getEntity();
 		String world = entity.getLocation().getWorld().getName();
+		if(ProtectedWorldsUtils.getProtect() == true) {
+			if(MrEssentials.getList().contains(world)) {
+				event.setCancelled(true);
+			}
+		}
+	}
+	
+	@EventHandler
+	public void onExplode(EntityExplodeEvent event) {
+		String world = event.getEntity().getLocation().getWorld().getName();
 		if(ProtectedWorldsUtils.getProtect() == true) {
 			if(MrEssentials.getList().contains(world)) {
 				event.setCancelled(true);
