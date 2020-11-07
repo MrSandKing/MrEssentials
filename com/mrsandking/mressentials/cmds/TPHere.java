@@ -7,7 +7,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.mrsandking.mressentials.utils.PlayerUtils;
 import com.mrsandking.mressentials.utils.TeleportUtils;
 
 public class TPHere implements CommandExecutor {
@@ -19,12 +18,18 @@ public class TPHere implements CommandExecutor {
 				Player player = (Player) sender;
 				if(player.hasPermission("mressentials.tphere")) {
 					if(args.length == 1) {
+
 						Player target = Bukkit.getPlayer(args[0]);
-						if(PlayerUtils.getOnlinePlayer(target)) {
-							TeleportUtils.teleportToPlayer(target, player);
-						} else {
-							player.sendMessage(ChatColor.RED+"Couldn't find that player!");
+						
+						for(Player players : Bukkit.getOnlinePlayers()) {
+							if(players.getName().equals(args[0])) {
+
+								TeleportUtils.teleportToPlayer(target, player);
+							} 
 						}
+						
+						sender.sendMessage(ChatColor.RED+"Couldn't find that player!");
+						
 					} else {
 						player.sendMessage(ChatColor.RED+"Correct usage: /tphere <player>");
 					}
