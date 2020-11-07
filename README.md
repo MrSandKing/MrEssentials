@@ -1,5 +1,5 @@
 <p align="center">
-  <img /https://github.com/xyzCCode/MrEssentials/blob/main/MrEssentials_github.png?raw=true>
+  <img ="https://raw.githubusercontent.com/xyzCCode/MrEssentials/main/MrEssentials_github.png">
 </p>
 
-##### Essential plugin for Spigot servers, like a EssentialsX. Still in development...
+###### Essential plugin for Spigot servers, like a EssentialsX. Still in development...
