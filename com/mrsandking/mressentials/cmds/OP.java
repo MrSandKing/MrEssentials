@@ -17,17 +17,20 @@ public class OP implements CommandExecutor {
 			if(!(sender instanceof Player)) {
 				if(args.length == 1) {
 					Player player = Bukkit.getPlayer(args[0]);
-					if(PlayerUtils.getOnlinePlayer(player)) {
+					
+					if(player == null) {
+						sender.sendMessage(ChatColor.RED+"Couldn't find that player!");
+					} else {
+					
 						if(!player.isOp()) {
-							player.setOp(true);
+							PlayerUtils.setOP(player, true);
 							sender.sendMessage(ChatColor.GREEN+"New "+ChatColor.RED+"Server Operator"+ChatColor.GREEN+"!");
 							sender.sendMessage(ChatColor.RED+player.getName()+ChatColor.GREEN+" now is the "+ChatColor.RED+"Server Operator");
 						} else {
 							sender.sendMessage(ChatColor.RED+"This player is already server operator!");
 						}
-					} else {
-						sender.sendMessage(ChatColor.RED+"Couldn't find this player!");
 					}
+					
 				} else {
 					sender.sendMessage(ChatColor.RED+"Correct usage: /op <player>");
 				}
