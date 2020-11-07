@@ -6,8 +6,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import com.mrsandking.mressentials.utils.PlayerUtils;
-
 import net.md_5.bungee.api.ChatColor;
 
 public class Fly implements CommandExecutor {
@@ -28,7 +26,8 @@ public class Fly implements CommandExecutor {
 						}
 					} else if(args.length == 1) {
 						Player target = Bukkit.getPlayer(args[0]);
-						if(PlayerUtils.getOnlinePlayer(target)) {
+						
+						if(target != null) {
 							if(target.getAllowFlight()) {
 								target.setAllowFlight(false);
 								target.sendMessage(ChatColor.AQUA+"Fly - disabled");
@@ -37,8 +36,9 @@ public class Fly implements CommandExecutor {
 								target.sendMessage(ChatColor.AQUA+"Fly - enabled");
 							}
 						} else {
-							player.sendMessage(ChatColor.RED+"Couldn't find that player!");
+							sender.sendMessage(ChatColor.RED+"Couldn't find that player!");
 						}
+
 					} else {
 						player.sendMessage(ChatColor.AQUA+"Correct Usage: /fly <player>");
 					}
@@ -47,8 +47,10 @@ public class Fly implements CommandExecutor {
 				}
 			} else {
 				if(args.length == 1) {
+					
 					Player target = Bukkit.getPlayer(args[0]);
-					if(PlayerUtils.getOnlinePlayer(target)) {
+					
+					if(target != null) {
 						if(target.getAllowFlight()) {
 							target.setAllowFlight(false);
 							target.sendMessage(ChatColor.AQUA+"Fly - disabled");
@@ -59,6 +61,8 @@ public class Fly implements CommandExecutor {
 					} else {
 						sender.sendMessage(ChatColor.RED+"Couldn't find that player!");
 					}
+					
+				
 				} else {
 					sender.sendMessage(ChatColor.AQUA+"You're the console! You can't fly!");
 					sender.sendMessage(ChatColor.AQUA+"Correct usage: /fly <player>");
