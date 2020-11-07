@@ -1,5 +1,5 @@
 name: MrEssentials
-version: 0.1.0
+version: 0.1.1
 main: com.mrsandking.mressentials.MrEssentials
 author: MrSandKing
 
@@ -19,3 +19,7 @@ commands:
     aliases: [kickplayer]        
   trash:
     description: Open that trash.
+  setspawn:
+    description: Set spawn
+  spawn:
+    description: Teleport to spawn.
