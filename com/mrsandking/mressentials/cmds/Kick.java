@@ -15,15 +15,14 @@ public class Kick implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String lab, String[] args) {
 		if(cmd.getName().equalsIgnoreCase("kick")) {
 			if(args.length >= 2) {
-				Player target = Bukkit.getPlayer(args[0]);
 				String string = "";
 		        for (int i = 1; i < args.length; i++)
-		        	string = String.valueOf(string) + args[i] + " "; 
-		        if(PlayerUtils.getOnlinePlayer(target)) {
-		        	
-		        	PlayerUtils.kickPlayer(target, "You've been kicked by "+sender.getName()+", reason", string, sender);
-		        	
-		        }
+		        	string = String.valueOf(string) + args[i] + " ";
+		        
+				Player target = Bukkit.getPlayer(args[0]);
+				
+				PlayerUtils.kickPlayer(target, "You've been kicked, reason", string, sender);
+				
 			} else {
 				sender.sendMessage(ChatColor.RED+"Correct usage: /kick <player> <reason>");
 			}
