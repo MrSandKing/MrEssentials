@@ -9,10 +9,11 @@ import com.mrsandking.mressentials.cmds.DEOP;
 import com.mrsandking.mressentials.cmds.Fly;
 import com.mrsandking.mressentials.cmds.Kick;
 import com.mrsandking.mressentials.cmds.OP;
+import com.mrsandking.mressentials.cmds.SetSpawn;
+import com.mrsandking.mressentials.cmds.Spawn;
 import com.mrsandking.mressentials.cmds.TPHere;
 import com.mrsandking.mressentials.cmds.Trash;
 import com.mrsandking.mressentials.listeners.ProtectedWorlds;
-import com.mrsandking.mressentials.utils.KitUtils;
 import com.mrsandking.mressentials.utils.ProtectedWorldsUtils;
 
 import net.md_5.bungee.api.ChatColor;
@@ -23,10 +24,13 @@ public class MrEssentials extends JavaPlugin {
 	private static List<String> list = ProtectedWorldsUtils.getProtectedWorlds();
 	
 	public void onEnable() {
-    
-		saveDefaultConfig();	
+		
+		saveDefaultConfig();
+		
 		reloadConfig();
+		
 		saveConfig();
+		
 		Trash.createTrash();
 		
 		if(getConfig().getBoolean("protect-world") == true) {
@@ -47,6 +51,8 @@ public class MrEssentials extends JavaPlugin {
 		getCommand("tphere").setExecutor(new TPHere());
 		getCommand("op").setExecutor(new OP());
 		getCommand("deop").setExecutor(new DEOP());
+		getCommand("setspawn").setExecutor(new SetSpawn());
+		getCommand("spawn").setExecutor(new Spawn());
 	}
 	
 	public static MrEssentials getInstance() {
